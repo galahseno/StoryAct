@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">StoryAct</string>
+    <string name="title_favorite_feature">Favorite</string>
+    <string name="error_couldnt_load_module">Couldn\'t load module</string>
+</resources>

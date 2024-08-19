@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="back">Back</string>
+    <string name="favorite">Favorite</string>
+    <string name="no_favorite">Favorite is empty.</string>
+    <string name="success_delete_favorite">Success deleted from favorite</string>
+</resources>
