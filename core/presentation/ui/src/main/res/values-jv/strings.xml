@@ -1,0 +1,16 @@
+<resources>
+    <string name="error_disk_full">Gagal nyimpen item amarga disk sampeyan kebak.</string>
+    <string name="error_request_timeout">Panjaluk wektu entek.</string>
+    <string name="error_too_many_requests">Sampeyan wis tekan watesan tarif.</string>
+    <string name="error_no_internet">Ora bisa tekan server, priksa sambungan sampeyan.</string>
+    <string name="error_payload_too_large">File kasebut gedhe banget.</string>
+    <string name="error_server_error">Opps, ana sing salah, coba maneh.</string>
+    <string name="error_serialization">Adhuh. ora bisa ngurai data.</string>
+    <string name="error_unknown">Ana kesalahan sing ora dingerteni.</string>
+    <string name="error_couldnt_load_image">Ora bisa mbukak gambar.</string>
+    <string name="error_couldnt_load_item">Ora bisa mbukak item.</string>
+    <string name="just_now">Lagi wae</string>
+    <string name="minutes_ago">%d menit kepungkur</string>
+    <string name="hours_ago">%d jam kepungkur</string>
+    <string name="days_ago">%d dino kepungkur</string>
+</resources>

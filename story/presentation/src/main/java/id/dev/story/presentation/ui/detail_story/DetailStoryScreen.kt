@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalMaterial3Api::class)
-
 package id.dev.story.presentation.ui.detail_story
 
 import android.content.res.Configuration
@@ -24,7 +22,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ArrowBackIosNew
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -53,7 +50,7 @@ import id.dev.core.presentation.design_system.FavoriteOutlinedIcon
 import id.dev.core.presentation.design_system.LocationIcon
 import id.dev.core.presentation.design_system.StoryActTheme
 import id.dev.core.presentation.ui.ObserveAsEvents
-import id.dev.core.presentation.ui.calculateDurationBetweenNow
+import id.dev.core.presentation.ui.story.calculateDurationBetweenNow
 import id.dev.story.presentation.R
 import id.dev.story.presentation.ui.components.StoryImage
 
@@ -200,6 +197,8 @@ private fun BoxScope.StoryHeader(
 private fun BoxScope.SheetContent(
     state: DetailStoryState
 ) {
+    val context = LocalContext.current
+
     var expand by rememberSaveable {
         mutableStateOf(false)
     }
@@ -263,7 +262,7 @@ private fun BoxScope.SheetContent(
                 } ?: Spacer(modifier = Modifier.weight(1f))
                 Text(
                     modifier = Modifier.align(CenterVertically),
-                    text = state.createdAt.calculateDurationBetweenNow(),
+                    text = state.createdAt.calculateDurationBetweenNow(context),
                     color = MaterialTheme.colorScheme.onSurface,
                     style = MaterialTheme.typography.bodyMedium
                 )

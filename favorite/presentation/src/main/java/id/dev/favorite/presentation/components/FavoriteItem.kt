@@ -40,12 +40,11 @@ import androidx.compose.ui.unit.dp
 import coil.compose.SubcomposeAsyncImage
 import id.dev.core.presentation.design_system.LocationIcon
 import id.dev.core.presentation.design_system.StoryActTheme
-import id.dev.favorite.presentation.FavoriteAction
-import id.dev.favorite.presentation.FavoriteUi
+import id.dev.core.presentation.ui.story.StoryUi
 
 @Composable
 fun FavoriteItem(
-    favoriteUi: FavoriteUi,
+    storyUi: StoryUi,
     modifier: Modifier = Modifier,
 ) {
     Card(
@@ -81,13 +80,13 @@ fun FavoriteItem(
             ) {
                 Image(
                     imageVector = ImageVector.vectorResource(id = avatarPicture),
-                    contentDescription = favoriteUi.name,
+                    contentDescription = storyUi.name,
                     modifier = Modifier
                         .size(48.dp)
                 )
                 Spacer(modifier = Modifier.width(16.dp))
                 Text(
-                    text = favoriteUi.name.replaceFirstChar { it.uppercase() },
+                    text = storyUi.name.replaceFirstChar { it.uppercase() },
                     color = MaterialTheme.colorScheme.onSurface,
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.SemiBold,
@@ -100,7 +99,7 @@ fun FavoriteItem(
             }
             Spacer(modifier = Modifier.height(12.dp))
             Text(
-                text = favoriteUi.description.replaceFirstChar { it.uppercase() },
+                text = storyUi.description.replaceFirstChar { it.uppercase() },
                 color = MaterialTheme.colorScheme.onSurface,
                 style = MaterialTheme.typography.bodyMedium,
                 maxLines = 5,
@@ -109,7 +108,7 @@ fun FavoriteItem(
             )
             Spacer(modifier = Modifier.height(12.dp))
             FavoriteImage(
-                photoUrl = favoriteUi.photoUrl,
+                photoUrl = storyUi.photoUrl,
                 modifier = Modifier
                     .fillMaxWidth()
                     .aspectRatio(16 / 9f)
@@ -121,7 +120,7 @@ fun FavoriteItem(
                     )
             )
             Spacer(modifier = Modifier.height(12.dp))
-            favoriteUi.location?.let {
+            storyUi.location?.let {
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.Start
@@ -188,7 +187,7 @@ private fun FavoriteImage(
 private fun FavoriteItemPreview() {
     StoryActTheme {
         FavoriteItem(
-            favoriteUi = FavoriteUi(
+            storyUi = StoryUi(
                 createdAt = "2024-08-13T10:02:18.598Z",
                 description = "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                 id = "id",

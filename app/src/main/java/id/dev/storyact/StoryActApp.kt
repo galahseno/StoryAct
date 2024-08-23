@@ -7,6 +7,7 @@ import id.dev.auth.data.di.authDataModule
 import id.dev.auth.presentation.di.authViewModelModule
 import id.dev.core.data.di.coreDataModule
 import id.dev.core.database.di.databaseModule
+import id.dev.maps.data.di.mapsDataModule
 import id.dev.maps.presentation.di.mapsViewModelModule
 import id.dev.post_story.data.di.postStoryDataModule
 import id.dev.post_story.presentation.di.postStoryViewModelModule
@@ -15,6 +16,7 @@ import id.dev.profile.presentation.di.profileViewModelModule
 import id.dev.story.data.di.storyDataModule
 import id.dev.story.presentation.di.storyViewModelModule
 import id.dev.storyact.di.appModule
+import id.dev.widget.data.di.widgetDataModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -27,7 +29,7 @@ class StoryActApp: Application() {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
-
+        Timber.d(MainActivity::class.java.toString())
         startKoin {
             androidLogger()
             androidContext(this@StoryActApp)
@@ -44,6 +46,8 @@ class StoryActApp: Application() {
                 postStoryDataModule,
                 postStoryViewModelModule,
                 mapsViewModelModule,
+                mapsDataModule,
+                widgetDataModule
             )
         }
     }

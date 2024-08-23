@@ -2,4 +2,8 @@
 <resources>
     <string name="show_password">Show Password</string>
     <string name="hide_password">Hide Password</string>
+    <string name="story">Story</string>
+    <string name="maps">Maps</string>
+    <string name="favorite">Favorite</string>
+    <string name="settings">Settings</string>
 </resources>

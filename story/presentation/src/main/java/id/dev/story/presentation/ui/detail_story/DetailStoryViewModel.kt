@@ -5,12 +5,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import id.dev.core.domain.story.StoryDomain
 import id.dev.core.domain.util.Result
 import id.dev.core.presentation.ui.asUiText
 import id.dev.story.domain.source.StoryRepository
-import id.dev.story.domain.stories.StoryDomain
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach

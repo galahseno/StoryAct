@@ -12,7 +12,6 @@ import androidx.lifecycle.viewModelScope
 import id.dev.auth.domain.AuthRepository
 import id.dev.auth.domain.UserDataValidator
 import id.dev.auth.presentation.R
-import id.dev.auth.presentation.register.RegisterEvent
 import id.dev.core.domain.util.DataError
 import id.dev.core.domain.util.Result
 import id.dev.core.presentation.ui.UiText

@@ -1,10 +1,10 @@
 package id.dev.story.domain.source
 
 import androidx.paging.PagingData
+import id.dev.core.domain.story.StoryDomain
 import id.dev.core.domain.util.DataError
 import id.dev.core.domain.util.Result
 import id.dev.story.domain.detail_story.DetailStoryDomain
-import id.dev.story.domain.stories.StoryDomain
 import kotlinx.coroutines.flow.Flow
 
 interface StoryRepository {

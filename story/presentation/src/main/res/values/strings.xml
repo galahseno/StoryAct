@@ -3,6 +3,9 @@
     <string name="retry">Retry</string>
     <string name="favorite">Favorite</string>
     <string name="back">Back</string>
-    <string name="add_to_favorite">Success add to Favorite</string>
+    <string name="add_to_favorite">Add to Favorite</string>
     <string name="remove_from_favorite">Deleted from Favorite</string>
+    <string name="success_add_favorite">Success add to favorite</string>
+    <string name="all_stories">All Stories</string>
+    <string name="location_only">Location Only</string>
 </resources>

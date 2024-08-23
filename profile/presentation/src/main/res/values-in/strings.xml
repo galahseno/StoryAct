@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="profile">Profil</string>
+    <string name="logout">Keluar</string>
+    <string name="post">posting</string>
+    <string name="follower">pengikut</string>
+    <string name="following">mengikuti</string>
+    <string name="dark_mode">Mode Gelap</string>
+    <string name="check">memeriksa</string>
+    <string name="you_are_logged_out">Anda keluar.</string>
+    <string name="change_language">Bahasa</string>
+</resources>

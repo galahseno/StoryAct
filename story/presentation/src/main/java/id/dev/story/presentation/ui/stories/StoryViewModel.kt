@@ -7,9 +7,11 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.map
+import id.dev.core.domain.story.StoryDomain
+import id.dev.core.presentation.ui.story.StoryUi
+import id.dev.core.presentation.ui.story.toStoryUi
 import id.dev.story.domain.source.StoryRepository
 import id.dev.story.presentation.mapper.StoryFilter
-import id.dev.story.presentation.mapper.toStoryUi
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
@@ -19,6 +21,7 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 
 class StoryViewModel(
     private val storyRepository: StoryRepository
@@ -56,7 +59,20 @@ class StoryViewModel(
             }
 
             is StoryAction.OnFavoriteClick -> {
-
+                viewModelScope.launch {
+                    val storyDomain = StoryDomain(
+                        createdAt = action.storyUi.createdAt,
+                        description = action.storyUi.description,
+                        id = action.storyUi.id,
+                        lat = action.storyUi.lat,
+                        lon = action.storyUi.lon,
+                        name = action.storyUi.name,
+                        photoUrl = action.storyUi.photoUrl,
+                        location = action.storyUi.location
+                    )
+                    storyRepository.insertToFavorite(storyDomain)
+                    _eventChannel.send(StoryEvent.SuccessAddFavorite)
+                }
             }
         }
     }

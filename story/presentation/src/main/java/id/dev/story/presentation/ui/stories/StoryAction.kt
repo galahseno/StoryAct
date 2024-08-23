@@ -1,5 +1,6 @@
 package id.dev.story.presentation.ui.stories
 
+import id.dev.core.presentation.ui.story.StoryUi
 import id.dev.story.presentation.mapper.StoryFilter
 
 interface StoryAction {

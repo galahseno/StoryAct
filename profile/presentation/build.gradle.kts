@@ -7,6 +7,8 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.material.icons.extended)
+
     implementation(projects.core.domain)
     implementation(projects.profile.domain)
 }

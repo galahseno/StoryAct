@@ -3,14 +3,17 @@ package id.dev.favorite.presentation
 import android.content.res.Configuration
 import android.widget.Toast
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -32,6 +35,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import id.dev.core.presentation.design_system.StoryActTheme
 import id.dev.core.presentation.ui.ObserveAsEvents
+import id.dev.core.presentation.ui.story.StoryUi
 import id.dev.favorite.presentation.components.FavoriteItem
 import id.dev.favorite.presentation.components.SwipeToDeleteContainer
 import org.koin.androidx.compose.koinViewModel
@@ -106,12 +110,12 @@ private fun FavoriteScreen(
                     items(state.favoriteList, key = { it.id }) {
                         SwipeToDeleteContainer(
                             item = it,
-                            onDelete = {
-                                onAction(FavoriteAction.OnFavoriteItemDismiss(it.id))
+                            onDelete = { storyUi ->
+                                onAction(FavoriteAction.OnFavoriteItemDismiss(storyUi.id))
                             },
-                            content = {
+                            content = { storyUi ->
                                 FavoriteItem(
-                                    favoriteUi = it,
+                                    storyUi = storyUi,
                                     modifier = Modifier
                                         .padding(bottom = 16.dp),
                                 )
@@ -133,9 +137,11 @@ private fun FavoriteActionBar(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 4.dp),
-        verticalAlignment = Alignment.CenterVertically
+            .padding(vertical = 16.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceEvenly
     ) {
+        Spacer(modifier = Modifier.width(16.dp))
         IconButton(
             onClick = {
                 onAction(FavoriteAction.OnBackClick)
@@ -153,7 +159,7 @@ private fun FavoriteActionBar(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(end = 16.dp)
+                .padding(end = 48.dp)
         ) {
             Text(
                 text = stringResource(id = R.string.favorite),
@@ -176,7 +182,7 @@ private fun FavoriteScreenPreview() {
             state = FavoriteState(
                 isLoading = false,
                 favoriteList = listOf(
-                    FavoriteUi(
+                    StoryUi(
                         createdAt = "2024-08-13T10:02:18.598Z",
                         description = "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                         id = "id",
@@ -186,7 +192,7 @@ private fun FavoriteScreenPreview() {
                         name = "don Joe",
                         photoUrl = "https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/small/avatar/dos-c4f65110288cc4fd8d67920393071e5420240717200127.png"
                     ),
-                    FavoriteUi(
+                    StoryUi(
                         createdAt = "2024-08-13T10:02:18.598Z",
                         description = "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                         id = "id22",

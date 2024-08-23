@@ -7,6 +7,11 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.ui.glance)
+    implementation(libs.androidx.ui.glance.material3)
+    implementation(libs.bundles.koin)
+    implementation(libs.coil.compose)
+
     implementation(projects.core.domain)
     implementation(projects.widget.domain)
 }

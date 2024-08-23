@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="storyact">Story Act</string>
+    <string name="storyact" translatable="false">Story Act</string>
     <string name="welcome_to_storyact">Welcome to StoryAct!</string>
     <string name="storyact_description">Post and share your best moment in our georgious app.</string>
     <string name="sign_in">Sign in</string>

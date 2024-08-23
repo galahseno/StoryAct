@@ -10,6 +10,7 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+        resourceConfigurations += listOf("en", "in", "jv")
     }
 
     packaging {
@@ -63,9 +64,7 @@ dependencies {
     implementation(projects.auth.presentation)
 
     implementation(projects.core.data)
-    implementation(projects.core.database)
     implementation(projects.core.domain)
-    implementation(projects.core.network)
     implementation(projects.core.presentation.designSystem)
     implementation(projects.core.presentation.ui)
 

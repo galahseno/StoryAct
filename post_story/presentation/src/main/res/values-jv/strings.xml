@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="back">Mbalik</string>
+    <string name="post_story">Posting Cerito</string>
+    <string name="camera">Kamera</string>
+    <string name="gallery">Galeri</string>
+    <string name="description">Katrangan</string>
+    <string name="description_hint">Ketik katrangan.</string>
+    <string name="location">Panggonan</string>
+    <string name="upload">Unggahan</string>
+    <string name="must_not_be_empty">ora bisa kosong</string>
+    <string name="post_story_success">Sukses kirim crita anyar</string>
+</resources>

@@ -74,8 +74,9 @@ import id.dev.core.presentation.design_system.StoryActTheme
 import id.dev.core.presentation.design_system.components.StoryActActionButton
 import id.dev.core.presentation.ui.ObserveAsEvents
 import id.dev.core.presentation.ui.asUiText
-import id.dev.core.presentation.ui.calculateDurationBetweenNow
-import id.dev.core.presentation.ui.formatNumber
+import id.dev.core.presentation.ui.story.StoryUi
+import id.dev.core.presentation.ui.story.calculateDurationBetweenNow
+import id.dev.core.presentation.ui.story.formatNumber
 import id.dev.story.domain.parseError
 import id.dev.story.presentation.R
 import id.dev.story.presentation.mapper.StoryFilter
@@ -99,7 +100,11 @@ fun StoryScreenRoot(
             }
 
             StoryEvent.SuccessAddFavorite -> {
-
+                Toast.makeText(
+                    context,
+                    context.getString(R.string.success_add_favorite),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
@@ -231,7 +236,9 @@ private fun ErrorState(
         text = stringResource(id = R.string.retry),
         isLoading = false,
         onClick = onClick,
-        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp)
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp)
     )
 }
 
@@ -252,7 +259,7 @@ private fun StoryFilter(
                 selected = selectedFilter == filter,
                 onClick = { onAction(StoryAction.OnFilterChange(filter)) },
                 label = {
-                    Text(text = filter.filterName)
+                    Text(text = stringResource(id = filter.filterName))
                 },
                 colors = FilterChipDefaults.filterChipColors(
                     selectedContainerColor = MaterialTheme.colorScheme.primary,
@@ -393,6 +400,8 @@ private fun StoryHeader(
     createdAt: String,
     modifier: Modifier = Modifier
 ) {
+    val context = LocalContext.current
+
     val avatarPicture = rememberSaveable {
         listOf(
             id.dev.core.presentation.design_system.R.drawable.avatar1,
@@ -426,7 +435,7 @@ private fun StoryHeader(
         )
         Spacer(modifier = Modifier.weight(1f))
         Text(
-            text = createdAt.calculateDurationBetweenNow(),
+            text = createdAt.calculateDurationBetweenNow(context),
             color = MaterialTheme.colorScheme.onSurface,
             style = MaterialTheme.typography.bodyMedium
         )

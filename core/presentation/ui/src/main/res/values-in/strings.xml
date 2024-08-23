@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_disk_full">Gagal menyimpan item karena disk Anda penuh.</string>
+    <string name="error_request_timeout">Batas waktu permintaan.</string>
+    <string name="error_too_many_requests">Anda telah mencapai batas tarif Anda.</string>
+    <string name="error_no_internet">Tidak dapat menjangkau server, harap periksa koneksi Anda.</string>
+    <string name="error_payload_too_large">Filenya terlalu besar.</string>
+    <string name="error_server_error">Ups, ada yang tidak beres, coba lagi.</string>
+    <string name="error_serialization">Ups. tidak dapat mengurai data.</string>
+    <string name="error_unknown">Terjadi kesalahan yang tidak diketahui.</string>
+    <string name="error_couldnt_load_image">Tidak dapat memuat gambar.</string>
+    <string name="error_couldnt_load_item">Tidak dapat memuat item.</string>
+    <string name="just_now">Baru saja</string>
+    <string name="minutes_ago">%d menit yang lalu</string>
+    <string name="hours_ago">%d jam yang lalu</string>
+    <string name="days_ago">%d hari yang lalu</string>
+</resources>

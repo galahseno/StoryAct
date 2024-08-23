@@ -14,20 +14,17 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import id.dev.core.presentation.design_system.BottomBarItem
-import id.dev.core.presentation.design_system.BottomBarTitle
 import id.dev.core.presentation.design_system.FavoriteFilledIcon
 import id.dev.core.presentation.design_system.FavoriteOutlinedIcon
 import id.dev.core.presentation.design_system.MapFilledIcon
 import id.dev.core.presentation.design_system.MapOutlinedIcon
+import id.dev.core.presentation.design_system.R
 import id.dev.core.presentation.design_system.SettingFilledIcon
 import id.dev.core.presentation.design_system.SettingOutlinedIcon
 import id.dev.core.presentation.design_system.StoryActTheme
@@ -36,6 +33,8 @@ import id.dev.core.presentation.design_system.StoryOutlinedIcon
 
 @Composable
 fun StoryActBottomBar(
+    selectedItemIndex: Int,
+    onSelectedItemIndex:(Int) -> Unit,
     onStoryClick: () -> Unit,
     onMapsClick: () -> Unit,
     onFavoriteClick: () -> Unit,
@@ -44,33 +43,31 @@ fun StoryActBottomBar(
 ) {
     val items = listOf(
         BottomBarItem(
-            title = BottomBarTitle.STORY,
+            title = R.string.story,
             selectedIcon = StoryFilledIcon,
             unselectedIcon = StoryOutlinedIcon,
             hasBadge = false,
         ),
         BottomBarItem(
-            title = BottomBarTitle.MAPS,
+            title = R.string.maps,
             selectedIcon = MapFilledIcon,
             unselectedIcon = MapOutlinedIcon,
             hasBadge = false,
         ),
         BottomBarItem(
-            title = BottomBarTitle.FAVORITE,
+            title = R.string.favorite,
             selectedIcon = FavoriteFilledIcon,
             unselectedIcon = FavoriteOutlinedIcon,
             hasBadge = false,
         ),
         BottomBarItem(
-            title = BottomBarTitle.SETTINGS,
+            title = R.string.settings,
             selectedIcon = SettingFilledIcon,
             unselectedIcon = SettingOutlinedIcon,
             hasBadge = true,
         )
     )
-    var selectedItemIndex by rememberSaveable {
-        mutableIntStateOf(0)
-    }
+
 
     NavigationBar(
         modifier = modifier
@@ -86,18 +83,16 @@ fun StoryActBottomBar(
                 ),
                 selected = selectedItemIndex == index,
                 onClick = {
-                    if (index != 2) {
-                        selectedItemIndex = index
-                    }
+                    onSelectedItemIndex(index)
                     when (item.title) {
-                        BottomBarTitle.MAPS -> onMapsClick()
-                        BottomBarTitle.STORY -> onStoryClick()
-                        BottomBarTitle.FAVORITE -> onFavoriteClick()
-                        BottomBarTitle.SETTINGS -> onSettingsClick()
+                        R.string.maps -> onMapsClick()
+                        R.string.story -> onStoryClick()
+                        R.string.favorite -> onFavoriteClick()
+                        R.string.settings -> onSettingsClick()
                     }
                 },
                 label = {
-                    Text(text = item.title.name.lowercase().replaceFirstChar { it.uppercase() })
+                    Text(text = stringResource(id = item.title))
                 },
                 alwaysShowLabel = false,
                 icon = {
@@ -114,14 +109,14 @@ fun StoryActBottomBar(
                             imageVector = if (index == selectedItemIndex) {
                                 item.selectedIcon
                             } else item.unselectedIcon,
-                            contentDescription = item.title.name,
+                            contentDescription = stringResource(id = item.title),
                             modifier = Modifier
                                 .size(24.dp)
                         )
                     }
                 }
             )
-            if (item.title == BottomBarTitle.MAPS) {
+            if (item.title == R.string.maps) {
                 Spacer(modifier = Modifier.width(32.dp))
             }
         }
@@ -134,6 +129,8 @@ fun StoryActBottomBar(
 private fun StoryActBottomBarPreview() {
     StoryActTheme {
         StoryActBottomBar(
+            selectedItemIndex = 0,
+            onSelectedItemIndex = {},
             onMapsClick = {},
             onStoryClick = {},
             onFavoriteClick = {},

@@ -9,6 +9,5 @@
     <string name="location">Location</string>
     <string name="upload">Upload</string>
     <string name="must_not_be_empty">can\'t be empty</string>
-    <string name="choose_picture">Choose a picture.</string>
     <string name="post_story_success">Success post new story</string>
 </resources>

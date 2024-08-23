@@ -2,7 +2,6 @@ package id.dev.story.data.dto.detail_story
 
 
 import id.dev.story.data.dto.Story
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable

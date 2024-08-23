@@ -10,8 +10,8 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.navigation.compose)
 
-
     implementation(projects.app)
+    implementation(projects.core.domain)
     api(projects.favorite.presentation)
     implementation(projects.favorite.domain)
     implementation(projects.favorite.data)

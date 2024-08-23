@@ -1,0 +1,11 @@
+<resources>
+    <string name="profile">Profile</string>
+    <string name="logout">Metu</string>
+    <string name="post">kiriman</string>
+    <string name="follower">pengikut</string>
+    <string name="following">nderek</string>
+    <string name="dark_mode">Mode peteng</string>
+    <string name="check">mriksa</string>
+    <string name="you_are_logged_out">Sampeyan lagi metu.</string>
+    <string name="change_language">Basa</string>
+</resources>

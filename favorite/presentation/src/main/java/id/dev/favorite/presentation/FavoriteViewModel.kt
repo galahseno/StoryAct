@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import id.dev.core.presentation.ui.story.StoryUi
 import id.dev.favorite.domain.FavoriteRepository
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.launchIn
@@ -27,7 +28,7 @@ class FavoriteViewModel(
             state = state.copy(
                 isLoading = false,
                 favoriteList = favoriteList.map {
-                    FavoriteUi(
+                    StoryUi(
                         id = it.id,
                         name = it.name,
                         photoUrl = it.photoUrl,

@@ -8,4 +8,5 @@
     <string name="dark_mode">Dark Mode</string>
     <string name="check">check</string>
     <string name="you_are_logged_out">You\'re logged out.</string>
+    <string name="change_language">Language</string>
 </resources>

@@ -9,7 +9,6 @@ android {
 dependencies {
     implementation(libs.androidx.paging.compose)
     implementation(libs.bundles.koin)
-    implementation(libs.timber)
     implementation(libs.androidx.material.icons.extended)
     implementation(libs.coil.compose)
 

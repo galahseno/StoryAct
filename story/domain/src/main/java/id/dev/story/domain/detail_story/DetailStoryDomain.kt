@@ -1,7 +1,7 @@
 package id.dev.story.domain.detail_story
 
+import id.dev.core.domain.story.StoryDomain
 
-import id.dev.story.domain.stories.StoryDomain
 
 data class DetailStoryDomain(
     val error: Boolean,

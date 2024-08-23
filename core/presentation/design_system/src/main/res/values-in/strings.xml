@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="show_password">Perlihatkan Sandi</string>
+    <string name="hide_password">Sembunyikan Sandi</string>
+    <string name="story">Cerita</string>
+    <string name="maps">Peta</string>
+    <string name="favorite">Favorit</string>
+    <string name="settings">Pengaturan</string>
+</resources>

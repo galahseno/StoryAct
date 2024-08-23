@@ -1,0 +1,10 @@
+<resources>
+    <string name="retry">Coba maneh</string>
+    <string name="favorite">Kasenengan</string>
+    <string name="back">Mbalik</string>
+    <string name="add_to_favorite">Nambah ning Kasenengan</string>
+    <string name="remove_from_favorite">Dibusak saka Kasenengan</string>
+    <string name="success_add_favorite">Sukses nambah Kasenengan</string>
+    <string name="all_stories">Kabeh Cerito</string>
+    <string name="location_only">Mung Panggonan</string>
+</resources>

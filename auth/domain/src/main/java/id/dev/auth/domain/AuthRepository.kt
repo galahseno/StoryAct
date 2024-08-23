@@ -1,7 +1,6 @@
 package id.dev.auth.domain
 
 import id.dev.core.domain.util.DataError
-import id.dev.core.domain.util.EmptyResult
 import id.dev.core.domain.util.Result
 
 interface AuthRepository {

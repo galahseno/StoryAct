@@ -17,13 +17,10 @@ import id.dev.core.presentation.ui.UiText
 import id.dev.core.presentation.ui.asUiText
 import id.dev.post_story.domain.PostStoryRepository
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.receiveAsFlow
-import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
 class PostStoryViewModel(
@@ -36,8 +33,11 @@ class PostStoryViewModel(
     private val _eventChannel = Channel<PostStoryEvent>()
     val events = _eventChannel.receiveAsFlow()
 
+    private val _selectedImagePath = snapshotFlow { state.selectedImagePath }
+
     init {
-        state.description.textAsFlow()
+        state.description
+            .textAsFlow()
             .onEach { description ->
                 state = state.copy(
                     isValidDescription = description.isNotEmpty(),
@@ -45,6 +45,13 @@ class PostStoryViewModel(
                 )
             }
             .launchIn(viewModelScope)
+
+        _selectedImagePath
+            .onEach {
+                state = state.copy(
+                    canUpload = state.description.text.isNotEmpty() && it != Uri.EMPTY
+                )
+            }.launchIn(viewModelScope)
     }
 
     fun onAction(action: PostStoryAction) {
@@ -53,7 +60,8 @@ class PostStoryViewModel(
                 state = state.copy(
                     imagePath = null,
                     canOpenCamera = false,
-                    selectedImagePath = Uri.EMPTY
+                    selectedImagePath = Uri.EMPTY,
+                    canUpload = false
                 )
             }
 

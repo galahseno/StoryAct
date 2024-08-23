@@ -3,7 +3,7 @@ package id.dev.core.data
 import android.content.Context
 import android.location.Geocoder
 import android.os.Build
-import id.dev.core.domain.LocationParser
+import id.dev.core.domain.story.LocationParser
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.channelFlow

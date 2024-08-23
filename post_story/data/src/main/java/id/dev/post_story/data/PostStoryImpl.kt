@@ -4,7 +4,7 @@ package id.dev.post_story.data
 
 import android.content.Context
 import android.net.Uri
-import id.dev.core.domain.LocationParser
+import id.dev.core.domain.story.LocationParser
 import id.dev.core.domain.util.DataError
 import id.dev.core.domain.util.EmptyResult
 import id.dev.core.domain.util.Result

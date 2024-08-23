@@ -12,6 +12,9 @@ interface StoryDao {
     @Query("SELECT * FROM story_table")
     fun getAllStories(): PagingSource<Int, StoryEntity>
 
+    @Query("SELECT * FROM story_table")
+    fun getAllStoriesWidget(): Flow<List<StoryEntity>>
+
     @Upsert
     suspend fun upsertStories(stories: List<StoryEntity>)
 

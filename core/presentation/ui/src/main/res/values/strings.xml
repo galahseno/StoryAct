@@ -10,4 +10,9 @@
     <string name="error_unknown">Unknown error occurred.</string>
     <string name="error_couldnt_load_image">Couldn\'t load image.</string>
     <string name="error_couldnt_load_item">Couldn\'t load item.</string>
+    <string name="error_couldnt_load_created_at" translatable="false"> </string>
+    <string name="just_now">Just now</string>
+    <string name="minutes_ago">%d minutes ago</string>
+    <string name="hours_ago">%d hours ago</string>
+    <string name="days_ago">%d days ago</string>
 </resources>

@@ -1,10 +1,10 @@
 package id.dev.favorite.data
 
 import id.dev.core.database.entity.FavoriteEntity
-import id.dev.favorite.domain.Favorite
+import id.dev.core.domain.story.StoryDomain
 
-fun FavoriteEntity.toFavorite(): Favorite {
-    return Favorite(
+fun FavoriteEntity.toStoryDomain(): StoryDomain {
+    return StoryDomain(
         id = id,
         name = name,
         description = description,

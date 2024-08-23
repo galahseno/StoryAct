@@ -50,8 +50,8 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.StrokeCap
@@ -322,13 +322,17 @@ private fun PostImage(
 ) {
     val context = LocalContext.current
 
+    val imageUri = remember(imagePath) {
+        if (imagePath != Uri.EMPTY) imagePath.getImageBitmap(context)
+        else id.dev.core.presentation.design_system.R.drawable.profile
+    }
+
     Box(
         modifier = modifier
             .fillMaxWidth()
     ) {
         SubcomposeAsyncImage(
-            model = if (imagePath != Uri.EMPTY) imagePath.getImageBitmap(context)
-            else id.dev.core.presentation.design_system.R.drawable.profile,
+            model = imageUri,
             contentDescription = imagePath.toString(),
             contentScale = ContentScale.FillBounds,
             modifier = Modifier
@@ -385,7 +389,7 @@ private fun BoxScope.PostHeader(
         Spacer(modifier = Modifier.width(24.dp))
         Box(
             modifier = Modifier
-                .align(CenterVertically)
+                .align(Alignment.CenterVertically)
                 .padding(end = 40.dp)
         ) {
             Text(

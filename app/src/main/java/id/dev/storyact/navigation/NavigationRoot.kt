@@ -5,9 +5,11 @@ import androidx.compose.material3.FabPosition
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -29,7 +31,6 @@ import id.dev.story.presentation.ui.detail_story.DetailStoryViewModel
 import id.dev.story.presentation.ui.stories.StoryScreenRoot
 import org.koin.androidx.compose.koinViewModel
 import org.koin.core.parameter.parametersOf
-import timber.log.Timber
 
 @Composable
 fun NavigationRoot(
@@ -41,6 +42,10 @@ fun NavigationRoot(
     val currentParentRoute = navBackStackEntry?.destination?.parent?.route
     val currentRoute = navBackStackEntry?.destination?.route
 
+    var selectedItemIndex by rememberSaveable {
+        mutableIntStateOf(0)
+    }
+
     Scaffold(
         containerColor = Color.Transparent,
         bottomBar = {
@@ -48,6 +53,12 @@ fun NavigationRoot(
                 && currentRoute != Screen.PostStory.route
             ) {
                 StoryActBottomBar(
+                    selectedItemIndex = selectedItemIndex,
+                    onSelectedItemIndex = {
+                        if (it != 2) {
+                            selectedItemIndex = it
+                        }
+                    },
                     onStoryClick = {
                         if (currentRoute == Screen.Story.route) return@StoryActBottomBar
                         navController.navigate(Screen.Story.route) {
@@ -168,7 +179,9 @@ private fun NavGraphBuilder.storyGraph(
         startDestination = Screen.Story.route,
         route = Screen.Home.route
     ) {
-        composable(Screen.Story.route) {
+        composable(
+            Screen.Story.route,
+        ) {
             StoryScreenRoot(
                 onStoryClick = {
                     navController.navigate(Screen.DetailStory.createRoute(it))
@@ -177,14 +190,10 @@ private fun NavGraphBuilder.storyGraph(
         }
         composable(
             route = Screen.DetailStory.route,
-            deepLinks = listOf(
-//                navDeepLink {
-//                    uriPattern = ""
-//                }
-            ),
             arguments = listOf(
                 navArgument(Screen.DetailStory.DETAIL_STORY_ARG) {
                     type = NavType.StringType
+                    defaultValue = "-1"
                 }
             )
         ) {

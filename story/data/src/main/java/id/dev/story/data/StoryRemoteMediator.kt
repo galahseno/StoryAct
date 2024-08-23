@@ -10,7 +10,7 @@ import androidx.room.withTransaction
 import id.dev.core.database.StoryDb
 import id.dev.core.database.entity.RemoteKeyEntity
 import id.dev.core.database.entity.StoryEntity
-import id.dev.core.domain.LocationParser
+import id.dev.core.domain.story.LocationParser
 import id.dev.core.domain.util.Result
 import id.dev.story.data.mapper.toStoryEntity
 import id.dev.story.domain.source.StoryRemoteDataSource

@@ -2,7 +2,7 @@ package id.dev.core.data.di
 
 import id.dev.core.data.EncryptedSessionStorage
 import id.dev.core.data.LocationParserImpl
-import id.dev.core.domain.LocationParser
+import id.dev.core.domain.story.LocationParser
 import id.dev.core.domain.SessionStorage
 import id.dev.core.network.HttpClientFactory
 import io.ktor.client.engine.cio.CIO

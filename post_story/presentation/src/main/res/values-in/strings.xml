@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="back">Kembali</string>
+    <string name="post_story">Posting Cerita</string>
+    <string name="camera">Kamera</string>
+    <string name="gallery">Galeri</string>
+    <string name="description">Keterangan</string>
+    <string name="description_hint">Masukkan deskripsi.</string>
+    <string name="location">Lokasi</string>
+    <string name="upload">Mengunggah</string>
+    <string name="must_not_be_empty">tidak boleh kosong</string>
+    <string name="post_story_success">Sukses memposting cerita baru</string>
+</resources>

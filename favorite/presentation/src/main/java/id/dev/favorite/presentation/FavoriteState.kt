@@ -1,18 +1,9 @@
 package id.dev.favorite.presentation
 
-data class FavoriteState(
-    val favoriteList: List<FavoriteUi> = emptyList(),
-    val isLoading: Boolean = true
-)
+import id.dev.core.presentation.ui.story.StoryUi
 
-data class FavoriteUi(
-    val id: String = "",
-    val name: String = "",
-    val description: String = "",
-    val photoUrl: String = "",
-    val createdAt: String = "",
-    val lat: Double? = null,
-    val lon: Double? = null,
-    val location: String? = null,
+data class FavoriteState(
+    val favoriteList: List<StoryUi> = emptyList(),
+    val isLoading: Boolean = true
 )
 

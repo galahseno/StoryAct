@@ -1,0 +1,8 @@
+<resources>
+    <string name="show_password">Ketokne Sandi</string>
+    <string name="hide_password">Delekne Sandi</string>
+    <string name="story">Cerito</string>
+    <string name="maps">Peta</string>
+    <string name="favorite">Kesenengan</string>
+    <string name="settings">Pengaturan</string>
+</resources>

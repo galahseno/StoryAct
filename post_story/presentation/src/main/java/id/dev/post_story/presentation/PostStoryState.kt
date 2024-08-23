@@ -2,7 +2,6 @@
 
 package id.dev.post_story.presentation
 
-import android.graphics.Bitmap
 import android.net.Uri
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.text2.input.TextFieldState

@@ -11,4 +11,5 @@ dependencies {
     implementation(libs.androidx.material.icons.extended)
 
     implementation(projects.favorite.domain)
+    implementation(projects.core.domain)
 }

@@ -8,12 +8,12 @@ sealed class Screen(val route: String) {
 
     data object Home : Screen("home")
     data object Story : Screen("home/story")
-    data object DetailStory : Screen("home/story/{storyId}") {
-        const val DETAIL_STORY_ARG = "storyId"
-        fun createRoute(storyId: String) = "home/story/$storyId"
+    data object DetailStory : Screen("home/story/{story_id}") {
+        const val DETAIL_STORY_ARG = "story_id"
+        fun createRoute(storyId: String) = route.replace("{story_id}", storyId)
     }
+
     data object Maps : Screen("home/maps")
     data object Profile : Screen("home/profile")
     data object PostStory : Screen("home/post_story")
-    data object Favorite : Screen("home/favorite")
 }
