@@ -24,7 +24,10 @@ internal fun Project.configureBuildTypes(
                 extensions.configure<ApplicationExtension> {
                     buildTypes {
                         debug {
-                            configureDebugBuildType(baseUrl)
+                            configureDebugBuildType(
+                                baseUrl,
+                                ExtensionType.APPLICATION
+                            )
                         }
                         release {
                             configureReleaseBuildType(
@@ -41,7 +44,10 @@ internal fun Project.configureBuildTypes(
                 extensions.configure<LibraryExtension> {
                     buildTypes {
                         debug {
-                            configureDebugBuildType(baseUrl)
+                            configureDebugBuildType(
+                                baseUrl,
+                                ExtensionType.LIBRARY
+                            )
                         }
                         release {
                             configureReleaseBuildType(
@@ -58,7 +64,10 @@ internal fun Project.configureBuildTypes(
                 extensions.configure<DynamicFeatureExtension> {
                     buildTypes {
                         debug {
-                            configureDebugBuildType(baseUrl)
+                            configureDebugBuildType(
+                                baseUrl,
+                                ExtensionType.DYNAMIC_FEATURE
+                            )
                         }
                         release {
                             configureReleaseBuildType(
@@ -74,9 +83,14 @@ internal fun Project.configureBuildTypes(
     }
 }
 
-private fun BuildType.configureDebugBuildType(baseUrl: String) {
+private fun BuildType.configureDebugBuildType(
+    baseUrl: String,
+    extensionType: ExtensionType
+) {
     buildConfigField("String", "BASE_URL", "\"$baseUrl\"")
-    isMinifyEnabled = false
+    if (extensionType != ExtensionType.DYNAMIC_FEATURE) {
+        isMinifyEnabled = false
+    }
 }
 
 private fun BuildType.configureReleaseBuildType(

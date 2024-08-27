@@ -19,3 +19,14 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+-dontwarn org.slf4j.impl.StaticLoggerBinder
+
+## Sql chilper
+-keep,includedescriptorclasses class net.sqlcipher.** { *; }
+-keep,includedescriptorclasses interface net.sqlcipher.** { *; }
+
+## koin
+-keep class org.koin.** { *; }
+-keep class * implements org.koin.core.module.Module
+-keep @org.koin.core.scope.Scope class *
+-keep interface org.koin.**

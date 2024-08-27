@@ -158,7 +158,7 @@ fun LocationMap(
                     verticalArrangement = Arrangement.Center
                 ) {
                     Text(
-                        text = "Location",
+                        text = stringResource(id = R.string.location),
                         modifier = Modifier
                     )
                     Text(

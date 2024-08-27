@@ -29,7 +29,6 @@ class StoryActApp: Application() {
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
-        Timber.d(MainActivity::class.java.toString())
         startKoin {
             androidLogger()
             androidContext(this@StoryActApp)

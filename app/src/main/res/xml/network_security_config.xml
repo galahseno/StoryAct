@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">story-api.dicoding.dev</domain>
+        <pin-set expiration="2025-12-12">
+            <pin digest="SHA-256">qCP4eoKVje0xZdOY+LDsYOVqaH8xPXVKNMjT8EWo1vM=</pin>
+            <!-- backup pin -->
+            <pin digest="SHA-256">bdrBhpj38ffhxpubzkINl0rG+UyossdhcBYj+Zx2fcc=</pin>
+            <pin digest="SHA-256">C5+lpZ7tcVwmwQIMcRtPbsQtWLABXhQzejna0wHFr8M=</pin>
+        </pin-set>
+
+    </domain-config>
+</network-security-config>

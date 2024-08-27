@@ -11,6 +11,8 @@ android {
             useSupportLibrary = true
         }
         resourceConfigurations += listOf("en", "in", "jv")
+
+        multiDexEnabled = true
     }
 
     packaging {
@@ -19,6 +21,11 @@ android {
         }
     }
     dynamicFeatures += setOf(":favorite:favorite_feature")
+    buildTypes {
+        getByName("release") {
+            signingConfig = signingConfigs.getByName("debug")
+        }
+    }
 }
 
 dependencies {
@@ -51,6 +58,12 @@ dependencies {
 
     // Timber
     implementation(libs.timber)
+
+    // Leak Canary
+    debugImplementation(libs.leakcanary.android)
+
+    // Multidex
+    implementation(libs.androidx.multidex)
 
     // Test
     testImplementation(libs.junit)

@@ -19,3 +19,12 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+-dontwarn java.lang.invoke.StringConcatFactory
+-dontwarn androidx.room.paging.**
+
+## room proguard
+-keep class * extends androidx.room.RoomDatabase
+-keep @androidx.room.Entity class *
+
+-keep class id.dev.core.database.di.** { *; }
+-keep interface id.dev.core.database.dao.** { *; }

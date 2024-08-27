@@ -1,6 +1,8 @@
 package id.dev.core.database.dao
 
 import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Upsert
 import id.dev.core.database.entity.FavoriteEntity
@@ -12,7 +14,7 @@ interface FavoriteDao {
     @Query("SELECT EXISTS(SELECT * FROM favorite_table WHERE id = :id)")
     fun checkFavoriteById(id: String): Flow<Boolean>
 
-    @Upsert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsertFavorite(favoriteEntity: FavoriteEntity)
 
     @Query("SELECT * FROM favorite_table")

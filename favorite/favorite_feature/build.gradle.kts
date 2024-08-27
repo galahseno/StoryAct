@@ -12,7 +12,7 @@ dependencies {
 
     implementation(projects.app)
     implementation(projects.core.domain)
-    api(projects.favorite.presentation)
+    implementation(projects.favorite.presentation)
     implementation(projects.favorite.domain)
     implementation(projects.favorite.data)
 }
