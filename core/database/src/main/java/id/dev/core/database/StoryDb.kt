@@ -11,7 +11,8 @@ import id.dev.core.database.entity.StoryEntity
 
 @Database(
     version = 1,
-    entities = [StoryEntity::class, RemoteKeyEntity::class, FavoriteEntity::class]
+    entities = [StoryEntity::class, RemoteKeyEntity::class, FavoriteEntity::class],
+    exportSchema = false
 )
 abstract class StoryDb : RoomDatabase() {
     abstract fun storyDao(): StoryDao
