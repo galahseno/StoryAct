@@ -17,7 +17,8 @@ internal fun Project.configureBuildTypes(
         buildFeatures {
             buildConfig = true
         }
-        val baseUrl = gradleLocalProperties(rootDir, providers).getProperty("BASE_URL")
+      //  val baseUrl = gradleLocalProperties(rootDir, providers).getProperty("BASE_URL")
+        val baseUrl = System.getenv("BASE_URL")
 
         when (extensionType) {
             ExtensionType.APPLICATION -> {
