@@ -5,7 +5,9 @@ orbs:
  
 jobs:
   build:
-    executor: android/android
+    executor:
+      name: android/android
+      gradle_version: 8.3.2
     steps:
       - checkout
       - restore_cache:
