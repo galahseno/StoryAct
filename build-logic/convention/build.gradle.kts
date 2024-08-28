@@ -50,5 +50,13 @@ gradlePlugin {
             id = "storyact.jvm.ktor"
             implementationClass = "JvmKtorConventionPlugin"
         }
+        register("jvmJunit5") {
+            id = "storyact.jvm.junit5"
+            implementationClass = "JvmJUnit5ConventionPlugin"
+        }
+        register("androidJunit5") {
+            id = "storyact.android.junit5"
+            implementationClass = "AndroidJUnit5ConventionPlugin"
+        }
     }
 }

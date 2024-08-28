@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.storyact.android.application.compose)
     alias(libs.plugins.storyact.jvm.ktor)
+    alias(libs.plugins.storyact.android.junit5)
 }
 
 android {
@@ -66,11 +67,7 @@ dependencies {
     implementation(libs.androidx.multidex)
 
     // Test
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation(projects.auth.data)
     implementation(projects.auth.domain)

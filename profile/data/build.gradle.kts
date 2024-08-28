@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.storyact.android.library)
     alias(libs.plugins.storyact.jvm.ktor)
+    alias(libs.plugins.storyact.android.room)
 }
 
 android {

@@ -46,8 +46,8 @@ class LocationParserImpl(
                         trySend(result)
                     }
                 }
+                awaitClose()
             }
-            awaitClose()
         }
     }
 }

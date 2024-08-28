@@ -40,7 +40,8 @@ class LocationObserverImpl(
                     }
                 }
 
-                val request = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 5000)
+                val request = LocationRequest
+                    .Builder(Priority.PRIORITY_HIGH_ACCURACY, 5000)
                     .build()
 
                 val locationCallback = object : LocationCallback() {

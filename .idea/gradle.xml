@@ -36,6 +36,7 @@
             <option value="$PROJECT_DIR$/core/presentation" />
             <option value="$PROJECT_DIR$/core/presentation/design_system" />
             <option value="$PROJECT_DIR$/core/presentation/ui" />
+            <option value="$PROJECT_DIR$/core/test" />
             <option value="$PROJECT_DIR$/favorite" />
             <option value="$PROJECT_DIR$/favorite/data" />
             <option value="$PROJECT_DIR$/favorite/domain" />

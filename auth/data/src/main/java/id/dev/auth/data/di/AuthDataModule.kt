@@ -1,9 +1,7 @@
 package id.dev.auth.data.di
 
-import id.dev.auth.data.AuthRemoteDataSourceImpl
 import id.dev.auth.data.AuthRepositoryImpl
 import id.dev.auth.data.EmailPatternValidator
-import id.dev.auth.domain.AuthRemoteDataSource
 import id.dev.auth.domain.AuthRepository
 import id.dev.auth.domain.PatternValidator
 import id.dev.auth.domain.UserDataValidator
@@ -17,5 +15,4 @@ val authDataModule = module {
     }
     singleOf(::UserDataValidator)
     singleOf(::AuthRepositoryImpl).bind<AuthRepository>()
-    singleOf(::AuthRemoteDataSourceImpl).bind<AuthRemoteDataSource>()
 }

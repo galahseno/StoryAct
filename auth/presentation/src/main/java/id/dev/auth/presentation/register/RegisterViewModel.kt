@@ -24,7 +24,7 @@ import kotlinx.coroutines.launch
 
 class RegisterViewModel(
     private val userDataValidator: UserDataValidator,
-    private val repository: AuthRepository
+    private val authRepository: AuthRepository
 ) : ViewModel() {
 
     var state by mutableStateOf(RegisterState())
@@ -83,7 +83,7 @@ class RegisterViewModel(
     private fun register() {
         viewModelScope.launch {
             state = state.copy(isRegistering = true)
-            val result = repository.register(
+            val result = authRepository.register(
                 name = state.name.text.toString(),
                 email = state.email.text.toString().trim(),
                 password = state.password.text.toString()
