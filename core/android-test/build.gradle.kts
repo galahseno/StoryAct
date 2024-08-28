@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.storyact.android.library.compose)
+    alias(libs.plugins.storyact.android.library)
     alias(libs.plugins.storyact.jvm.junit5)
 }
 
