@@ -2,7 +2,6 @@ import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 
 plugins {
     alias(libs.plugins.storyact.android.feature.ui)
-    alias(libs.plugins.mapsplatform.secrets.plugin)
 }
 
 android {

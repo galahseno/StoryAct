@@ -25,12 +25,11 @@ securityCryptoKtx = "1.1.0-alpha06"
 sqliteKtx = "2.4.0"
 timber = "5.0.1"
 ksp = "2.0.10-1.0.24"
-room = "2.6.0"
+room = "2.6.1"
 paging = "3.3.2"
 maps = "4.3.3"
 coroutines = "1.8.1"
 gmsLocation = "21.3.0"
-secretsPlugin = "2.0.1"
 glance="1.1.0"
 
 junit5 = "5.10.1"
@@ -128,7 +127,6 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 room = { id = "androidx.room", version.ref = "room" }
 android-dynamicFeature = { id = "com.android.dynamic-feature", version.ref = "agp" }
-mapsplatform-secrets-plugin = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "secretsPlugin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 junit5 = { id = "de.mannodermaus.android-junit5", version.ref = "junit5-plugin" }
 
