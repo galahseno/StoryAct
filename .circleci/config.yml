@@ -30,6 +30,8 @@ jobs:
       - run:
           name: Run Build
           command: ./gradlew build
+          environment :
+            BASE_URL: "https://story-api.dicoding.dev/v1"
       - store_artifacts:
           path: app/build/reports
           destination: reports
