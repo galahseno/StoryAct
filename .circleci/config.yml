@@ -22,9 +22,7 @@ jobs:
       - run:
           name: Create local.properties file
           command: |
-            echo sdk.dir= ~/project > local.properties
-            echo BASE_URL=$BASE_URL >> local.properties
-            echo MAPS_API_KEY=$MAPS_API_KEY >> local.properties
+            printf "BASE_URL=$BASE_URL\nMAPS_API_KEY=$MAPS_API_KEY" >> ~/project/local.properties
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
