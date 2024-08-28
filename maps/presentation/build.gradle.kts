@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     alias(libs.plugins.storyact.android.feature.ui)
     alias(libs.plugins.mapsplatform.secrets.plugin)
@@ -5,6 +7,12 @@ plugins {
 
 android {
     namespace = "id.dev.maps.presentation"
+
+    defaultConfig {
+        val mapApiKey = gradleLocalProperties(rootDir, providers).getProperty("MAPS_API_KEY")
+
+        manifestPlaceholders += mapOf("MAPS_API_KEY" to mapApiKey)
+    }
 }
 
 dependencies {
