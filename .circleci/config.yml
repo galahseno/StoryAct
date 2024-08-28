@@ -21,8 +21,7 @@ jobs:
           command: sudo chmod +x ./gradlew
       - run:
           name: Create local.properties file
-          command: |
-            printf "BASE_URL=$BASE_URL\nMAPS_API_KEY=$MAPS_API_KEY" >> ~/project/local.properties
+          command: printf "BASE_URL=$BASE_URL\nMAPS_API_KEY=$MAPS_API_KEY" >> ~/project/local.properties
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
