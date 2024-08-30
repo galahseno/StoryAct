@@ -12,14 +12,14 @@ in [Android Expert Class](https://www.dicoding.com/academies/165)
 
 <table style="padding:10px">
   <tr>
-    <td><img src="images/intro.png"  alt="1" width = 279px height = 496px ></td>
-    <td><img src="images/sign_up.png" align="right" alt="2" width = 279px height = 496px></td>
-    <td><img src="images/sign_in.png" alt="3" width = 288px height = 512px></td>
+    <td><img src="images/intro.png"  alt="1" width = 350px height = 750px ></td>
+    <td><img src="images/sign_up.png" align="right" alt="2" width = 350px height = 750px ></td>
+    <td><img src="images/sign_in.png" alt="3" width = 350px height = 750px></td>
   </tr>
   <tr>
-    <td><img src="images/story.png"  alt="1" width = 279px height = 496px ></td>
-    <td><img src="images/maps.png" align="right" alt="2" width = 279px height = 496px></td>
-    <td><img src="images/upload.png" alt="3" width = 288px height = 512px></td>
+    <td><img src="images/story.png"  alt="1" width = 350px height = 750px ></td>
+    <td><img src="images/maps.png" align="right" alt="2" width = 350px height = 750px></td>
+    <td><img src="images/upload.png" alt="3" width = 350px height = 750px></td>
   </tr>
 </table>
 
@@ -68,6 +68,7 @@ in [Android Expert Class](https://www.dicoding.com/academies/165)
       Inject)
 - Edge To Edge Configuration
 - Paging 3
+- Support Dark and Light Mode
 - CI/CD with CircleCI
 - Security
     - Encrypted Shared Preferences
@@ -85,4 +86,3 @@ in [Android Expert Class](https://www.dicoding.com/academies/165)
    BASE_URL=https://story-api.dicoding.dev/v1
    MAPS_API_KEY=<Your-Maps-Api-Key>
 5. Run Projects
-  
