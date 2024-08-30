@@ -13,12 +13,12 @@ in [Android Expert Class](https://www.dicoding.com/academies/165)
 <table style="padding:10px">
   <tr>
     <td><img src="images/intro.png"  alt="1" width = 300px height = 550px ></td>
-    <td><img src="images/sign_up.png" align="right" alt="2" width = 300px height = 550px ></td>
+    <td><img src="images/sign_up.png" alt="2" width = 300px height = 550px ></td>
     <td><img src="images/sign_in.png" alt="3" width = 300px height = 550px ></td>
   </tr>
   <tr>
     <td><img src="images/story.png"  alt="1" width = 300px height = 550px ></td>
-    <td><img src="images/maps.png" align="right" alt="2" width = 300px height = 550px ></td>
+    <td><img src="images/maps.png" alt="2" width = 300px height = 550px ></td>
     <td><img src="images/upload.png" alt="3" width = 300px height = 550px ></td>
   </tr>
 </table>
@@ -41,7 +41,7 @@ in [Android Expert Class](https://www.dicoding.com/academies/165)
     - test isolation class
 - Integration tests
     - test class interaction with each other
-- Activity tests (with [Compose Testing](https://developer.android.com/jetpack/compose/testing))
+- Ui tests (with [Compose Testing](https://developer.android.com/jetpack/compose/testing))
     - Coming Soon
 
 ## Other useful features
@@ -60,6 +60,7 @@ in [Android Expert Class](https://www.dicoding.com/academies/165)
   with [Kotlin Flows](https://kotlinlang.org/docs/reference/coroutines/flow.html))
 - Android architecture components (Jetpack Library)
 - Support Multi language (indonesia, engglish, jawa)
+- Google Maps Api
 - [Splash Screen](https://developer.android.com/develop/ui/views/launch/splash-screen) Support
 - Google [Material Design](https://material.io/blog/android-material-theme-color) library
 - Declarative UI (with [Jetpack Compose](https://developer.android.com/jetpack/compose))
