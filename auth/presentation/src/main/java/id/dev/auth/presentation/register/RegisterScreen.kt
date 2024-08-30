@@ -195,7 +195,7 @@ fun RegisterScreen(
             state = state.password,
             isPasswordVisible = state.isPasswordVisible,
             onTogglePasswordVisibility = {
-                onAction(RegisterAction.OnTogglePasswordVisibilityClick)
+                onAction(RegisterAction.OnTogglePasswordVisibility)
             },
             hint = stringResource(id = R.string.example_password),
             title = stringResource(id = R.string.password),

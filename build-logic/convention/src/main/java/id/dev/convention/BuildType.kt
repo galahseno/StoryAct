@@ -25,6 +25,7 @@ internal fun Project.configureBuildTypes(
                     buildTypes {
                         debug {
                             configureDebugBuildType(
+                                commonExtension,
                                 baseUrl,
                                 ExtensionType.APPLICATION
                             )
@@ -45,6 +46,7 @@ internal fun Project.configureBuildTypes(
                     buildTypes {
                         debug {
                             configureDebugBuildType(
+                                commonExtension,
                                 baseUrl,
                                 ExtensionType.LIBRARY
                             )
@@ -65,6 +67,7 @@ internal fun Project.configureBuildTypes(
                     buildTypes {
                         debug {
                             configureDebugBuildType(
+                                commonExtension,
                                 baseUrl,
                                 ExtensionType.DYNAMIC_FEATURE
                             )
@@ -84,12 +87,17 @@ internal fun Project.configureBuildTypes(
 }
 
 private fun BuildType.configureDebugBuildType(
+    commonExtension: CommonExtension<*, *, *, *, *, *>,
     baseUrl: String,
     extensionType: ExtensionType
 ) {
     buildConfigField("String", "BASE_URL", "\"$baseUrl\"")
     if (extensionType != ExtensionType.DYNAMIC_FEATURE) {
         isMinifyEnabled = false
+        proguardFiles(
+            commonExtension.getDefaultProguardFile("proguard-android-optimize.txt"),
+            "proguard-rules.pro"
+        )
     }
 }
 

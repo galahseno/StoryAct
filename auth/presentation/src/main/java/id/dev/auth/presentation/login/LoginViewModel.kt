@@ -38,7 +38,7 @@ class LoginViewModel(
             state = state.copy(
                 canLogin = userDataValidator.isValidEmail(
                     email = email.toString().trim()
-                ) && (password.length >= UserDataValidator.MIN_PASSWORD_LENGTH)
+                ) && userDataValidator.isValidPasswordLength(password.toString())
             )
         }.launchIn(viewModelScope)
     }

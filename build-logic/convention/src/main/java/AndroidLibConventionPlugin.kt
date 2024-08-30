@@ -26,6 +26,12 @@ class AndroidLibConventionPlugin : Plugin<Project> {
                     extensionType = ExtensionType.LIBRARY
                 )
 
+//                @Suppress("UnstableApiUsage")
+//                testOptions {
+//                    unitTests.isReturnDefaultValues = true
+//                    unitTests.isIncludeAndroidResources = true
+//                }
+
                 defaultConfig {
                     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
                     consumerProguardFiles("consumer-rules.pro")

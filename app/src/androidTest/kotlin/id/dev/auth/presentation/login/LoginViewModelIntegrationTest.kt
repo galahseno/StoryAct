@@ -15,91 +15,43 @@ import id.dev.auth.data.EmailPatternValidator
 import id.dev.auth.data.dto.LoginRequest
 import id.dev.auth.domain.UserDataValidator
 import id.dev.core.android_test.TestMockEngine
-import id.dev.core.android_test.loginFailResponseStub
+import id.dev.core.android_test.di.integrationTestModule
 import id.dev.core.android_test.loginSuccessResponseStub
+import id.dev.core.android_test.util.TestContext
+import id.dev.core.android_test.util.TestScenario
 import id.dev.core.network.HttpClientFactory
 import id.dev.core.presentation.ui.UiText
 import id.dev.core.test.MainCoroutineExtension
 import id.dev.core.test.SessionStorageFake
-import io.ktor.client.engine.mock.MockEngineConfig
-import io.ktor.client.engine.mock.respond
 import io.ktor.client.engine.mock.toByteArray
-import io.ktor.http.HttpStatusCode
-import io.ktor.http.headers
-import io.ktor.utils.io.ByteReadChannel
 import kotlinx.coroutines.test.runTest
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.RegisterExtension
+import org.koin.core.context.loadKoinModules
+import org.koin.core.context.unloadKoinModules
+import org.koin.core.parameter.parametersOf
+import org.koin.test.KoinTest
+import org.koin.test.inject
 
 @MediumTest
-class LoginViewModelTest {
+class LoginViewModelIntegrationTest : KoinTest {
 
-    companion object {
-        @JvmField
-        @RegisterExtension
-        val mainCoroutineExtension = MainCoroutineExtension()
-    }
+    @JvmField
+    @RegisterExtension
+    val mainCoroutineExtension = MainCoroutineExtension()
+
+    private val sessionStorageFake: SessionStorageFake by inject()
+    private val mockEngine: TestMockEngine by inject { parametersOf(mainCoroutineExtension.testDispatcher) }
 
     private lateinit var viewModel: LoginViewModel
     private lateinit var authRepository: AuthRepositoryImpl
-    private lateinit var sessionStorageFake: SessionStorageFake
-    private lateinit var mockEngine: TestMockEngine
-
-    private var currentTest: String? = null
 
     @BeforeEach
     fun setup() {
-        sessionStorageFake = SessionStorageFake()
-        val mockEngineConfig = MockEngineConfig().apply {
-            requestHandlers.add { request ->
-                val relativeUrl = request.url.encodedPath
-                if (relativeUrl == "/v1/login") {
-                    when (currentTest) {
-                        "testLoginSuccess" -> {
-                            respond(
-                                content = ByteReadChannel(
-                                    text = Json.encodeToString(loginSuccessResponseStub)
-                                ),
-                                headers = headers {
-                                    set("Content-Type", "application/json")
-                                }
-                            )
-                        }
-
-                        "testLoginFail" -> {
-                            respond(
-                                content = ByteReadChannel(
-                                    text = Json.encodeToString(loginFailResponseStub)
-                                ),
-                                headers = headers {
-                                    set("Content-Type", "application/json")
-                                },
-                                status = HttpStatusCode.Unauthorized
-                            )
-                        }
-
-                        else -> {
-                            respond(
-                                content = byteArrayOf(),
-                                status = HttpStatusCode.InternalServerError
-                            )
-                        }
-                    }
-                } else {
-                    respond(
-                        content = byteArrayOf(),
-                        status = HttpStatusCode.InternalServerError
-                    )
-                }
-            }
-        }
-        mockEngine = TestMockEngine(
-            dispatcher = mainCoroutineExtension.testDispatcher,
-            mockEngineConfig = mockEngineConfig
-        )
+        loadKoinModules(integrationTestModule)
 
         val httpClient = HttpClientFactory(
             sessionStorage = sessionStorageFake
@@ -117,9 +69,14 @@ class LoginViewModelTest {
         )
     }
 
+    @AfterEach
+    fun tearDown() {
+        unloadKoinModules(integrationTestModule)
+    }
+
     @Test
     fun testLoginFail() = runTest {
-        currentTest = "testLoginFail"
+        TestContext.currentTest = TestScenario.TEST_LOGIN_FAIL
 
         val email = "integration-test@test.com"
         val password = "Asdfgh12345"
@@ -155,7 +112,7 @@ class LoginViewModelTest {
 
     @Test
     fun testLoginSuccess() = runTest {
-        currentTest = "testLoginSuccess"
+        TestContext.currentTest = TestScenario.TEST_LOGIN_SUCCESS
 
         val email = "integration-test@test.com"
         val password = "Asdfgh12345"

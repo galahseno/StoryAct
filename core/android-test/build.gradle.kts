@@ -10,6 +10,7 @@ android {
 dependencies {
     implementation(libs.ktor.client.mock)
     implementation(libs.bundles.ktor)
+    implementation(libs.bundles.koin)
     implementation(libs.coroutines.test)
 
     implementation(projects.auth.data)

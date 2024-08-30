@@ -19,8 +19,10 @@ class JvmJUnit5ConventionPlugin : Plugin<Project> {
                 "testRuntimeOnly"(libs.findLibrary("junit5.engine").get())
 
                 "testImplementation"(libs.findLibrary("assertk").get())
+                "testImplementation"(libs.findLibrary("mockk").get())
                 "testImplementation"(libs.findLibrary("turbine").get())
                 "testImplementation"(libs.findLibrary("coroutines.test").get())
+                "testImplementation"(project(":core:test"))
             }
         }
     }
