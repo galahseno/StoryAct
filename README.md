@@ -12,14 +12,14 @@ in [Android Expert Class](https://www.dicoding.com/academies/165)
 
 <table style="padding:10px">
   <tr>
-    <td><img src="images/intro.png"  alt="1" width = 350px height = 650px ></td>
-    <td><img src="images/sign_up.png" align="right" alt="2" width = 350px height = 650px></td>
-    <td><img src="images/sign_in.png" alt="3" width = 350px height = 650px></td>
+    <td><img src="images/intro.png"  alt="1" width = 300px height = 550px ></td>
+    <td><img src="images/sign_up.png" align="right" alt="2" width = 300px height = 550px ></td>
+    <td><img src="images/sign_in.png" alt="3" width = 300px height = 550px ></td>
   </tr>
   <tr>
-    <td><img src="images/story.png"  alt="1" width = 350px height = 650px></td>
-    <td><img src="images/maps.png" align="right" alt="2" width = 350px height = 650px></td>
-    <td><img src="images/upload.png" alt="3" width = 350px height = 650px></td>
+    <td><img src="images/story.png"  alt="1" width = 300px height = 550px ></td>
+    <td><img src="images/maps.png" align="right" alt="2" width = 300px height = 550px ></td>
+    <td><img src="images/upload.png" alt="3" width = 300px height = 550px ></td>
   </tr>
 </table>
 
